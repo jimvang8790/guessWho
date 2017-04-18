@@ -37,7 +37,6 @@ function appendName() {
 function compareUserGuess() {
   if (name === randomPerson) {
     $('.results').text("You got it dude!").fadeIn('slow').fadeOut('slow');
-    // onReady();
     guessAgain();
   } else {
     $('.results').text("Wrong!!! Try again").fadeIn('slow').fadeOut('slow');
