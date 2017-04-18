@@ -39,6 +39,6 @@ function compareUserGuess() {
   if (name === randomPerson) {
     $('.results').text("You got it dude!");
   } else {
-    $('.results').text("WRONG!");
+    $('.results').text("Wrong!!! Try again");
   }
 }
