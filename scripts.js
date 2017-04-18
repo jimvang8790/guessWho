@@ -2,9 +2,10 @@ var podArray = [
   'Jim', 'Abby', 'Tessa', 'Amal'
 ];
 
-//making global
+//making global but not setting them equal to anything inorder to call them later
 var name;
 var randomPerson;
+
 // getting document ready
 $(document).ready(onReady);
 
@@ -26,24 +27,19 @@ function randomNumber(min, max){
     return Math.floor(Math.random() * (1 + max - min) + min);
 }
 
-//we are appending names
+//we are appending names to the div
 function appendName() {
   var ourNumber = randomNumber(0, podArray.length-1);//making a random number between our podArray
   randomPerson = podArray[ourNumber];//giving the person a random number
   $('.name-guess').text(randomPerson);//appending to the DOM
 }
 
-//this compares the guess to the correct answer
+//this compares the users guess to the correct answer
 function compareUserGuess() {
   if (name === randomPerson) {
     $('.results').text("You got it dude!").fadeIn('slow').fadeOut('slow');
-    guessAgain();
-  } else {
+    appendName(); // calling this again will restart the game after guessing correctly
+  } else { // other wise guess again until guess correctly
     $('.results').text("Wrong!!! Try again").fadeIn('slow').fadeOut('slow');
   }
-}
-
-function guessAgain() {
-  console.log('testing guessAgain');
-  appendName();
 }
